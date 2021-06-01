@@ -14,7 +14,7 @@ class Credentials(UserDict):
     - if credentials for user and password are not provided, they will be taken
       from environment variables (env variables → postgres_user + postgres_pwd)
     - if env variables are not set, default values will be used (user=postgres, password=postgres)
-    - if port is not set, default will be used (5432)
+    - defaults for host, port = localhost, 5432
 
     """
     def __init__(self, database, host="localhost", port=5432, user=None, password=None):
