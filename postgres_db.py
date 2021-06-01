@@ -15,8 +15,8 @@ class Credentials(UserDict):
       from environment variables (env variables → postgres_user + postgres_pwd)
     - if env variables are not set, default values will be used (user=postgres, password=postgres)
     - defaults for host, port = localhost, 5432
-
     """
+
     def __init__(self, database, host="localhost", port=5432, user=None, password=None):
         user = user if user is not None else os.getenv("postgres_user", "postgres")
         password = password if password is not None else os.getenv("postgres_pwd", "postgres")
@@ -28,3 +28,7 @@ class Credentials(UserDict):
             user=user,
             password=password,
         )
+
+    def __repr__(self):
+        hide_if_pwd = lambda k, v: (k, "***") if k == "password" else (k, v)
+        return str(dict(hide_if_pwd(*item) for item in vars(self)["data"].items()))
