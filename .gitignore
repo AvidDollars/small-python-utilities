@@ -9,5 +9,5 @@ __pycache__
 .idea
 
 # playground files
-playground.py
+playground*.py
 text.txt
