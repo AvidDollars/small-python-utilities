@@ -1,5 +1,6 @@
 import hashlib
 
+
 def hash(string, *, algorithm="sha256"):
     """
     returns a hash (=digest) of a provided string
